@@ -590,12 +590,22 @@ span.lh-node:hover {
 }
 
 .lh-category > .lh-score .lh-score__title {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   font-weight: 400;
 }
 
 .lh-passed-audits[open] summary.lh-passed-audits-summary {
   margin-bottom: calc(var(--default-padding) * 2);
+}
+
+.lh-category > .lh-score .lh-score__isPWA a {
+  font-size: smaller;
+  color: var(--pass-color);
+  margin-left: var(--default-padding);
+  text-decoration: none;
+  display: block;
 }
 
 summary.lh-passed-audits-summary {

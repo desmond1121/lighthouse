@@ -141,12 +141,14 @@ class Runner {
         let aggregations = [];
         let reportCategories = [];
         let score = 0;
+        let isPWA = false;
         if (config.categories) {
           const reportGenerator = new ReportGeneratorV2();
           const report = reportGenerator.generateReportJson(config, resultsById);
           reportCategories = report.categories;
           aggregations = report.aggregations;
           score = report.score;
+          isPWA = report.isPWA;
         }
 
         return {
@@ -161,7 +163,8 @@ class Runner {
           score,
           reportCategories,
           reportGroups: config.groups,
-          aggregations
+          aggregations,
+          isPWA,
         };
       });
 

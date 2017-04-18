@@ -347,6 +347,7 @@ describe('Runner', () => {
 
     return Runner.run(null, {url, config, driverMock}).then(results => {
       assert.ok(results.lighthouseVersion);
+      assert.ok('isPWA' in results);
       assert.ok(results.generatedTime);
       assert.equal(results.initialUrl, url);
       assert.equal(results.audits['content-width'].name, 'content-width');

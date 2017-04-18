@@ -129,6 +129,20 @@ describe('ReportGeneratorV2', () => {
       assert.equal(result.categories[0].score, 0);
       assert.equal(result.categories[1].score, 55);
     });
+
+    it('sets an isPWA signal for the PWA category', () => {
+      const result = new ReportGeneratorV2().generateReportJson({
+        categories: {
+          'pwa': {weight: 1, audits: [{id: 'auditA', weight: 1}]},
+          'categoryB': {weight: 1, audits: [{id: 'auditB', weight: 1}]},
+        }
+      }, {auditA: {score: 50}, auditB: {score: 100}});
+
+      const pwaCategory = result.categories.find(cat => cat.id === 'pwa');
+      assert.equal(pwaCategory.isPWA, false);
+      const categoryB = result.categories.find(cat => cat.id === 'categoryB');
+      assert.ok(categoryB.isPWA === undefined);
+    });
   });
 
   describe('#generateHtmlReport', () => {
