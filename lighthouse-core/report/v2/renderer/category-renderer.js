@@ -128,7 +128,8 @@ class CategoryRenderer {
       `lh-timeline-metric--${Util.calculateRating(audit.score)}`,
     ].join(' '));
 
-    const sparklineContainerEl = this._dom.createChildOf(element, 'div', 'lh-timeline-metric__sparkline');
+    const sparklineContainerEl = this._dom.createChildOf(element, 'div',
+        'lh-timeline-metric__sparkline');
     const titleEl = this._dom.createChildOf(element, 'div', 'lh-timeline-metric__title');
     const titleNameEl = this._dom.createChildOf(titleEl, 'span', 'lh-timeline-metric__name');
     const titleValueEl = this._dom.createChildOf(titleEl, 'span', 'lh-timeline-metric__value');
@@ -141,11 +142,13 @@ class CategoryRenderer {
       return element;
     }
 
-    const sparklineEl = this._dom.createChildOf(sparklineContainerEl, 'div', 'lh-sparkline lh-sparkline--thin');
+    const sparklineEl = this._dom.createChildOf(sparklineContainerEl, 'div',
+        'lh-sparkline lh-sparkline--thin');
     const sparklineBarEl = this._dom.createChildOf(sparklineEl, 'div', 'lh-sparkline__bar');
     sparklineBarEl.style.width = audit.result.rawValue / scale * 100 + '%';
 
-    const descriptionEl = this._dom.createChildOf(element, 'div', 'lh-timeline-metric__description');
+    const descriptionEl = this._dom.createChildOf(element, 'div',
+        'lh-timeline-metric__description');
     descriptionEl.appendChild(this._dom.createSpanFromMarkdown(audit.result.helpText));
 
     return element;
@@ -339,7 +342,8 @@ class CategoryRenderer {
 
     const metricAudits = category.audits.filter(audit => audit.group === 'perf-metric');
     const metricAuditsEl = this._renderAuditGroup(groups['perf-metric']);
-    const timelineContainerEl = this._dom.createChildOf(metricAuditsEl, 'div', 'lh-timeline-container');
+    const timelineContainerEl = this._dom.createChildOf(metricAuditsEl, 'div',
+        'lh-timeline-container');
     const timelineEl = this._dom.createChildOf(timelineContainerEl, 'div', 'lh-timeline');
 
     let perfTimelineScale = 0;
@@ -367,7 +371,7 @@ class CategoryRenderer {
         return metricAuditsEl.appendChild(this._renderAudit(item));
       }
 
-      timelineEl.appendChild(this._renderTimelineMetricAudit(item, perfTimelineScale))
+      timelineEl.appendChild(this._renderTimelineMetricAudit(item, perfTimelineScale));
     });
 
     metricAuditsEl.open = true;

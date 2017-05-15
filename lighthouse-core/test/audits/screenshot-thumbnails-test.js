@@ -28,7 +28,11 @@ const pwaTrace = require('../fixtures/traces/progressive-app-m60.json');
 /* eslint-env mocha */
 
 describe('Screenshot thumbnails', () => {
-  let computedArtifacts, ttfiOrig, ttciOrig, ttfiReturn, ttciReturn;
+  let computedArtifacts;
+  let ttfiOrig;
+  let ttciOrig;
+  let ttfiReturn;
+  let ttciReturn;
 
   before(() => {
     computedArtifacts = Runner.instantiateComputedArtifacts();
