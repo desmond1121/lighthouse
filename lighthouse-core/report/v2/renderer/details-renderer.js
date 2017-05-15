@@ -209,7 +209,7 @@ class DetailsRenderer {
 
       let timing = thumbnail.timing.toLocaleString() + ' ms';
       if (thumbnail.timing > 1000) {
-        timing = Math.round(thumbnail.timing / 100) / 10 + ' s';
+        timing = (Math.round(thumbnail.timing / 100) / 10).toLocaleString() + ' s';
       }
 
       const timingEl = this._dom.createChildOf(frameEl, 'div', 'lh-filmstrip__timestamp');
@@ -306,6 +306,7 @@ DetailsRenderer.ThumbnailDetails; // eslint-disable-line no-unused-expressions
 
 /** @typedef {{
  *     type: string,
+ *     scale: number,
  *     items: !Array<{timing: number, timestamp: number, data: string}>,
  * }}
  */
