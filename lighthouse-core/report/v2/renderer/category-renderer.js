@@ -356,7 +356,7 @@ class CategoryRenderer {
     const thumbnailAudit = category.audits.find(audit => audit.id === 'screenshot-thumbnails');
     const thumbnailResult = thumbnailAudit && thumbnailAudit.result;
     if (thumbnailResult && thumbnailResult.details) {
-      const thumbnailDetails = /** @type {DetailsRenderer.FilmstripDetails} */
+      const thumbnailDetails = /** @type {!DetailsRenderer.FilmstripDetails} */
           (thumbnailResult.details);
       if (typeof thumbnailDetails.scale === 'number') {
         perfTimelineScale = Math.max(perfTimelineScale, thumbnailDetails.scale);
