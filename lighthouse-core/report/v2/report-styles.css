@@ -509,6 +509,10 @@ summary {
   padding: calc(var(--default-padding) * 2) var(--default-padding);
   border-bottom: 1px solid var(--report-border-color);
 }
+.lh-scores-header__solo {
+  padding: 0;
+  border: 0;
+}
 
 .lh-category {
   padding: 24px calc(var(--default-padding) * 2);
