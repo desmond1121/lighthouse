@@ -349,7 +349,7 @@ class CategoryRenderer {
     let perfTimelineScale = 0;
     metricAudits.forEach(audit => {
       if (Number.isFinite(/** @type {number} */ (audit.result.rawValue))) {
-        perfTimelineScale = Math.max(audit.result.rawValue);
+        perfTimelineScale = Math.max(perfTimelineScale, audit.result.rawValue);
       }
     });
 
